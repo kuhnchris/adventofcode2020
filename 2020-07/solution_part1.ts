@@ -51,6 +51,7 @@ let solveForBagType = function (bag) {
             })
         }
     });
+    console.log(bag,">returning: ",containAll);
     return containAll;
 }
 
