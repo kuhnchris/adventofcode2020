@@ -44,8 +44,9 @@ function recursiveSolve(currJolt, path){
         {
             solvedSubChain = solvedSubChain + recursiveSolve(currJolt-i, path);
         } else if (Object.keys(alreadySolvedChain).indexOf((currJolt-i).toString()) >= 0){
+            console.log("Already solved ",(currJolt-i)," - adding to current chain. (I am at ",currJolt," and i=",i);
             solvedSubChain = solvedSubChain + alreadySolvedChain[(currJolt-i)];
-            //console.log("Possible path: "+path);
+            
         }
     }
     console.log(currJolt,": solved chains: ",solvedSubChain);
