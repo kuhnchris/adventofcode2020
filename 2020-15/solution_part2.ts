@@ -10,14 +10,15 @@ let startNumbs = inp[0].split(",");
 let turn = 0;
 let turnTable = {};
 let lastNumber = "0";
-while (turn < 2020){
+while (turn < 30000000){
     turn++;
     if ((turn-1) < startNumbs.length){
         turnTable[startNumbs[(turn-1)]] = { "last": turn, "curr": turn };
         lastNumber = startNumbs[(turn-1)];
         console.log("🌠 turn ",turn,"adding number",lastNumber);
     } else {
-        console.log("🎲 turn ",turn,": checking",lastNumber);
+        if (turn % 10000 == 0)
+            console.log("🎲 turn ",turn,": checking",lastNumber);
         if (lastNumber in turnTable){
             //console.log("🎲! turn ",turn,":",lastNumber,"was spoken before, so: ",turnTable[lastNumber].curr,"-",turnTable[lastNumber].last, "so...");
             lastNumber = (turnTable[lastNumber].curr - turnTable[lastNumber].last).toString();
